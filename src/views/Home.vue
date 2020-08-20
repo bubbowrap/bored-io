@@ -2,7 +2,7 @@
   <v-layout>
     <v-row>
       <v-col md="10" lg="7" xl="6">
-        <h1 class="subheading grey--text text--darken-3">Never be bored again.</h1>
+        <h1 class="subheading grey--text text--darken-3">Never feel bored again.</h1>
             <p class="grey--text text--darken-2">Click <strong>'Find Activities'</strong> to nail down your criteria or <strong>'Surprise Me!'</strong> to get our suggestions.</p>
         <v-btn class="orange darken-2 white--text mr-2" depressed>
           <v-icon left>mdi-magnify</v-icon>

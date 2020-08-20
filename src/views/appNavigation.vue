@@ -7,7 +7,11 @@
   >
     <v-list-item>
       <v-list-item-content class="pa-0">
-        <router-link class="title d-flex" to="/" style="text-decoration: none; color: inherit;">
+        <router-link
+          class="title d-flex"
+          to="/"
+          style="text-decoration: none; color: inherit;"
+        >
           <v-icon class="mr-1">mdi-power</v-icon>
           <strong class="subheading text-uppercase">Bored.io</strong>
         </router-link>
@@ -15,9 +19,7 @@
     </v-list-item>
 
     <v-divider></v-divider>
-    <v-list
-    nav
-    >
+    <v-list nav>
       <v-list-item
         v-for="link in links"
         :key="link.text"
@@ -32,6 +34,11 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
+    <template v-slot:append>
+      <div class="pa-2">
+        <p class="text-center indigo--text text--lighten-3">Version 0.0.0</p>
+      </div>
+    </template>
   </v-navigation-drawer>
 </template>
 

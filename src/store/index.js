@@ -12,9 +12,27 @@ export default new Vuex.Store({
         type: 'busywork',
         participants: 1,
         price: 0,
-        link: '',
+        link: 'https://www.google.com',
         key: '2735499',
         accessibility: 0
+      },
+      {
+        activity: 'Organize a bookshelf',
+        type: 'busywork',
+        participants: 1,
+        price: 0,
+        link: '',
+        key: '6098037',
+        accessibility: 0
+      },
+      {
+        activity: 'Plant a tree',
+        type: 'recreational',
+        participants: 1,
+        price: 0.3,
+        link: '',
+        key: '1942393',
+        accessibility: 0.3
       }
     ]
   },
