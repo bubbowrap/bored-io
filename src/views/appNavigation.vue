@@ -6,11 +6,11 @@
     dark
   >
     <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title class="title d-flex">
+      <v-list-item-content class="pa-0">
+        <router-link class="title d-flex" to="/" style="text-decoration: none; color: inherit;">
           <v-icon class="mr-1">mdi-power</v-icon>
           <strong class="subheading text-uppercase">Bored.io</strong>
-        </v-list-item-title>
+        </router-link>
       </v-list-item-content>
     </v-list-item>
 

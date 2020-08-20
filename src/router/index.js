@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import completedActivities from '../views/completedActivities.vue'
-import savedActivities from '../views/savedActivities.vue'
+import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
+import completedActivities from '@/views/completedActivities.vue'
+import savedActivities from '@/views/savedActivities.vue'
 
 Vue.use(VueRouter)
 

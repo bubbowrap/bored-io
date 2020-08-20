@@ -1,5 +1,5 @@
 <template>
     <div>
-        <h1 class="subheading indigo--text">Saved Activities</h1>
+        <h1 class="subheading grey--text text--darken-3">Saved Activities</h1>
     </div>
 </template>
