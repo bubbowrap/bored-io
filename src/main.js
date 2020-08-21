@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './App.vue'
-import util from './util'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
@@ -10,7 +9,6 @@ Vue.component('Default', Default)
 Vue.config.productionTip = false
 
 new Vue({
-  util,
   router,
   store,
   vuetify,

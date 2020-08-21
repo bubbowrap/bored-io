@@ -1,8 +1,9 @@
 <template>
   <v-navigation-drawer
     color="indigo"
+    v-model="drawer"
+    mobile-breakpoint="600"
     app
-    permanent
     dark
   >
     <v-list-item>
@@ -44,6 +45,7 @@
 
 <script>
 export default {
+  props: ['drawer'],
   data () {
     return {
       links: [

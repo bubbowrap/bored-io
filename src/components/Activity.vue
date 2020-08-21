@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="1" sm="6" md="4">
+  <v-col sm="auto" md="4">
     <v-card
       :class="completed ? 'disabled' : null"
     >
@@ -31,19 +31,21 @@
         >
           <v-icon>mdi-heart</v-icon>
         </v-btn>
-        <v-btn
-          icon
-          v-else
-        >
-          <v-icon>mdi-check-circle</v-icon>
-        </v-btn>
+        <template v-else>
+          <v-btn
+            icon
+            @click="completeActivity(activity)"
+          >
+            <v-icon>mdi-check-circle</v-icon>
+          </v-btn>
 
-        <v-btn
-        icon
-        @click="deleteActivity(activity)"
-        >
-          <v-icon>mdi-delete</v-icon>
-        </v-btn>
+          <v-btn
+          icon
+          @click="deleteActivity(activity)"
+          >
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
+        </template>
       </v-card-actions>
     </v-card>
   </v-col>
@@ -57,19 +59,21 @@ export default {
   methods: {
     ...mapActions([
       'saveActivity',
+      'completeActivity',
       'deleteActivity'
     ])
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .v-card.disabled {
-  background-color: rgba(0,0,0,.05) !important;
+  background-color: rgba(0,0,0,.07) !important;
   box-shadow: none !important;
 
   .v-card__title {
     text-decoration: line-through;
+    word-break: normal;
   }
 
   .v-card__title,

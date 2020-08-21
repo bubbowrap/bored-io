@@ -1,3 +1,5 @@
+import { removeItem } from '@/util'
+
 const state = {
   activities: [
     {
@@ -38,7 +40,10 @@ const mutations = {
     state.activities = activities
   },
   'DELETE_ACTIVITY' (state, payload) {
-    state.activities.splice(state.activities.indexOf(state.activities.find(e => e.key === payload.key)), 1)
+    removeItem(state.activities, payload)
+  },
+  'COMPLETE_ACTIVITY' (state, payload) {
+    payload.completed = !payload.completed
   }
 }
 
@@ -48,7 +53,9 @@ const actions = {
   },
   deleteActivity: ({ commit }, payload) => {
     commit('DELETE_ACTIVITY', payload)
-    console.log(state.activities)
+  },
+  completeActivity: ({ commit }, payload) => {
+    commit('COMPLETE_ACTIVITY', payload)
   }
 }
 
