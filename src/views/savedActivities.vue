@@ -1,31 +1,20 @@
 <template>
-  <v-layout>
+  <div>
     <v-row>
-      <v-col cols="12">
+      <v-col>
         <h1 class="subheading grey--text text--darken-3">Saved Activities</h1>
       </v-col>
-
-      <v-col
-        v-for="activity in activities"
-        :key="activity.key"
-        cols="4"
-      >
-        <Activity :activity="activity" />
-      </v-col>
     </v-row>
-  </v-layout>
+    <Activities />
+  </div>
 </template>
 
 <script>
-import Activity from '@/components/Activity.vue'
-import { mapState } from 'vuex'
+import Activities from '@/components/Activities.vue'
 
 export default {
-  computed: {
-    ...mapState(['activities'])
-  },
   components: {
-    Activity
+    Activities
   }
 }
 </script>

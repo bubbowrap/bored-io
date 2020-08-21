@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <div>
     <v-row>
       <v-col md="10" lg="7" xl="6">
         <h1 class="subheading grey--text text--darken-3">Never feel bored again.</h1>
@@ -8,18 +8,39 @@
           <v-icon left>mdi-magnify</v-icon>
           Find Activities
         </v-btn>
-        <v-btn color="indigo" outlined>
+        <v-btn
+          color="indigo"
+          outlined
+          @click="getRandom"
+        >
           <v-icon left>mdi-help</v-icon>
           Surprise Me!
         </v-btn>
       </v-col>
     </v-row>
-  </v-layout>
+    <v-row v-if="showActivities">
+      <Activities :randomActivities="true" :saveBtn="true" />
+    </v-row>
+  </div>
 </template>
 
 <script>
+import Activities from '@/components/Activities'
+
 export default {
+  data () {
+    return {
+      showActivities: false
+    }
+  },
+  components: {
+    Activities
+  },
   methods: {
+    getRandom () {
+      this.showActivities = true
+      this.$store.dispatch('getRandom')
+    }
   }
 }
 </script>

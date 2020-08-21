@@ -1,5 +1,5 @@
 <template>
-  <v-layout>
+  <div>
     <v-row>
       <v-col md="10" lg="7" xl="6">
         <h1 class="subheading grey--text text--darken-3">About Bored.io</h1>
@@ -14,5 +14,5 @@
         Visit my site</v-btn>
       </v-col>
     </v-row>
-  </v-layout>
+  </div>
 </template>

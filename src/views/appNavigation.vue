@@ -53,7 +53,7 @@ export default {
           text: 'Home'
         },
         {
-          icon: 'mdi-content-save',
+          icon: 'mdi-heart',
           path: '/saved',
           text: 'Saved Activities'
         },

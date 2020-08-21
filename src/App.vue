@@ -7,12 +7,16 @@
 </template>
 
 <script>
+
 export default {
   name: 'App',
   computed: {
     layout () {
       return 'Default'
     }
+  },
+  created () {
+    // this.$store.dispatch('initActivities')
   }
 }
 </script>
