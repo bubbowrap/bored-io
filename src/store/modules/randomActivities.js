@@ -10,7 +10,7 @@ const state = {
 const mutations = {
   'SAVE_ACTIVITY' (state, payload) {
     payload = { ...payload, completed: false }
-    state.myActivities.unshift(payload)
+    myActivities.state.activities.unshift(payload)
     removeItem(state.randomActivities, payload)
   }
 }

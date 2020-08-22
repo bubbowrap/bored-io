@@ -62,8 +62,8 @@
             to="/"
             style="text-decoration: none; color: inherit;"
           >
-            <v-icon class="mr-1">mdi-power</v-icon>
-            <strong class="subheading text-uppercase">Bored.io</strong>
+            <v-icon class="mr-1">mdi-emoticon-neutral-outline</v-icon>
+            <strong class="subheading text-uppercase">Bored.af</strong>
           </router-link>
         </v-list-item-content>
       </v-list-item>
@@ -103,6 +103,7 @@
 
 <script>
 // import appNavigation from '@/views/appNavigation.vue'
+import { mapActions } from 'vuex'
 
 export default {
   data () {
@@ -132,8 +133,12 @@ export default {
       ]
     }
   },
-  components: {
-    // appNavigation
+  methods: {
+    ...mapActions([
+      'saveData',
+      'loadData',
+      'clearData'
+    ])
   }
 }
 </script>

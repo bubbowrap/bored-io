@@ -1,14 +1,20 @@
 <template>
 <div>
-    <v-row v-if="activities.length">
+    <transition-group
+    name="list"
+    v-if="activities.length"
+    class="row"
+    appear
+    @before-leave="beforeLeave"
+    >
       <Activity
         v-for="activity in activities"
-        :key="activity.id"
+        :key="activity.key"
         :activity="activity"
         :completed="activity.completed"
         :saveBtn="saveBtn">
       </Activity>
-    </v-row>
+    </transition-group>
     <template v-else>
       <slot></slot>
     </template>
@@ -22,6 +28,16 @@ export default {
   props: ['randomActivities', 'saveBtn', 'completed'],
   components: {
     Activity
+  },
+  methods: {
+    beforeLeave (el) {
+      console.log('hey')
+      const { marginLeft, marginTop, width, height } = window.getComputedStyle(el)
+      el.style.left = `${el.offsetLeft - parseFloat(marginLeft, 10)}px`
+      el.style.top = `${el.offsetTop - parseFloat(marginTop, 10)}px`
+      el.style.width = width
+      el.style.height = height
+    }
   },
   computed: {
     activities () {

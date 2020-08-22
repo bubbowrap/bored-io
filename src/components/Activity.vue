@@ -1,9 +1,9 @@
 <template>
-  <v-col sm="auto" md="4">
+  <v-col cols="12" sm="auto" md="6" lg="4">
     <v-card
       :class="completed ? 'disabled' : null"
     >
-      <v-card-title class="text-capitalize">{{ activity.activity }}</v-card-title>
+      <v-card-title class="text-capitalize mb-1 ">{{ activity.activity }}</v-card-title>
       <v-card-subtitle class="text-uppercase">{{ activity.type }}</v-card-subtitle>
       <v-card-text class="grey--text text--darken-4">
         # Participants:
@@ -67,13 +67,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-card__title {
+  word-break: normal;
+  line-height: 1.25;
+}
+
 .v-card.disabled {
   background-color: rgba(0,0,0,.07) !important;
   box-shadow: none !important;
 
   .v-card__title {
     text-decoration: line-through;
-    word-break: normal;
   }
 
   .v-card__title,
