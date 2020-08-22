@@ -127,7 +127,6 @@
     <v-snackbar
       v-model="snackbar"
       :timeout="timeout"
-      class="text-center"
     >
       {{ snackbarText }}
 
