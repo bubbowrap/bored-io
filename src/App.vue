@@ -1,32 +1,47 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <component :is="layout">
+      <router-view></router-view>
+    </component>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  name: 'App',
+  computed: {
+    layout () {
+      return 'Default'
     }
+  },
+  created () {
+    this.$store.dispatch('initActivities')
   }
 }
+</script>
+
+<style>
+  .v-toolbar__content {
+    border-bottom: thin solid rgba(0,0,0,.1);
+  }
+
+  .list-enter-active {
+    transition: .2 ease;
+  }
+
+  .list-leave-active {
+    transition: opacity .2s ease;
+    position: absolute;
+  }
+
+  .list-enter,
+  .list-leave-to {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  .list-move {
+    transition: .2s ease;
+  }
 </style>
