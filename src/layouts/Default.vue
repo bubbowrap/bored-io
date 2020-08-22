@@ -39,7 +39,7 @@
               <v-list-item-title>Load Data</v-list-item-title>
             </v-list-item>
             <v-list-item
-            @click="clearData()"
+            @click.stop="confirmClear()"
             >
               <v-list-item-title>Clear Data</v-list-item-title>
             </v-list-item>
@@ -47,6 +47,39 @@
         </v-menu>
       </div>
     </v-app-bar>
+
+    <v-dialog
+      v-model="dialog"
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline">Are you sure you want to erase the data?</v-card-title>
+
+        <v-card-text>
+          Clicking <strong>confirm</strong> will erase your activities in both the app and in the database (But go ahead, I literally don't care).
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="grey darken-1"
+            text
+            @click="dialog = false"
+          >
+            Disagree
+          </v-btn>
+
+          <v-btn
+            color="orange darken-2"
+            text
+            @click="clearData"
+          >
+            Agree
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 
     <v-navigation-drawer
       color="indigo"
@@ -91,6 +124,13 @@
       </template>
     </v-navigation-drawer>
 
+    <v-snackbar
+      v-model="snackbar"
+      :timeout="timeout"
+    >
+      {{ snackbarText }}
+    </v-snackbar>
+
     <v-main class="grey lighten-4">
       <v-container class="pa-8 pt-2" fluid>
         <keep-alive>
@@ -103,12 +143,17 @@
 
 <script>
 // import appNavigation from '@/views/appNavigation.vue'
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
+// import store from '@/store'
 
 export default {
   data () {
     return {
       drawer: true,
+      dialog: false,
+      snackbar: false,
+      snackbarText: 'hey',
+      timeout: 2000,
       links: [
         {
           icon: 'mdi-view-dashboard',
@@ -133,12 +178,31 @@ export default {
       ]
     }
   },
+  watch: {
+    drawer () {
+      if (window.innerWidth > 600) return true
+    }
+  },
   methods: {
-    ...mapActions([
-      'saveData',
-      'loadData',
-      'clearData'
-    ])
+    confirmClear () {
+      this.dialog = true
+    },
+    saveData () {
+      this.$store.dispatch('saveData')
+      this.snackbarText = 'Activities saved!'
+      this.snackbar = true
+    },
+    loadData () {
+      this.$store.dispatch('loadData')
+      this.snackbarText = 'Activities loaded!'
+      this.snackbar = true
+    },
+    clearData () {
+      this.$store.dispatch('clearData')
+      this.dialog = false
+      this.snackbarText = 'Activities cleared!'
+      this.snackbar = true
+    }
   }
 }
 </script>

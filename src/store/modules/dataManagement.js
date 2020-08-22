@@ -8,7 +8,7 @@ const state = {
 const mutations = {
   'SAVE_DATA' (payload) {
     axios.post(`${process.env.VUE_APP_DB}/data.json`, payload)
-      .then(res => console.log(res))
+      .then(res => res)
       .catch(err => console.log(err))
   },
   'LOAD_DATA' () {
@@ -16,14 +16,14 @@ const mutations = {
       .then(res => {
         const data = res.data
         for (const key in data) {
-          myActivities.state.activities.push(...data[key].myActivities)
+          state.myActivities.push(...data[key].myActivities)
         }
       })
       .catch(err => console.log(err))
   },
   'CLEAR_DATA' () {
     axios.put(`${process.env.VUE_APP_DB}/data.json`, [])
-      .then(res => console.log(res))
+      .then(res => res)
       .catch(err => console.log(err))
   }
 }
@@ -32,6 +32,8 @@ const actions = {
   saveData: ({ commit }) => {
     commit('CLEAR_DATA')
     commit('SAVE_DATA', myActivities.state.activities)
+    state.snackbar = true
+    state.snackbarText = 'Activities Saved!'
   },
   loadData: ({ commit }) => {
     commit('LOAD_DATA')
