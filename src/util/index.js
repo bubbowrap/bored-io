@@ -1,4 +1,7 @@
+import Vue from 'vue'
 import axios from 'axios'
+
+const EventBus = new Vue()
 
 const api = axios.create({
   baseURL: 'https://www.boredapi.com/api'
@@ -21,4 +24,4 @@ const getActivity = (state) => {
     .catch(err => console.log(err))
 }
 
-export { getActivity, removeItem }
+export { EventBus, getActivity, removeItem }
