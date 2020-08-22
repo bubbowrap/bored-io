@@ -16,7 +16,7 @@ const mutations = {
       .then(res => {
         const data = res.data
         for (const key in data) {
-          state.myActivities.push(...data[key].myActivities)
+          myActivities.state.activities.push(...data[key].myActivities)
         }
       })
       .catch(err => console.log(err))
@@ -35,12 +35,10 @@ const actions = {
   },
   loadData: ({ commit }) => {
     commit('LOAD_DATA')
-    this.$store.dispatch('initActivities')
   },
   clearData: ({ commit }) => {
     commit('CLEAR_DATA')
     myActivities.state.activities = []
-    this.$store.dispatch('initActivities')
   }
 }
 
