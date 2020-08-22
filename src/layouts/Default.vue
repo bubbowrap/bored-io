@@ -129,6 +129,17 @@
       :timeout="timeout"
     >
       {{ snackbarText }}
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="orange"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
     </v-snackbar>
 
     <v-main class="grey lighten-4">
@@ -178,11 +189,6 @@ export default {
       ]
     }
   },
-  watch: {
-    drawer () {
-      if (window.innerWidth > 600) return true
-    }
-  },
   methods: {
     confirmClear () {
       this.dialog = true
@@ -202,6 +208,11 @@ export default {
       this.dialog = false
       this.snackbarText = 'Activities cleared!'
       this.snackbar = true
+    }
+  },
+  created () {
+    if (window.innerWidth < 600) {
+      this.drawer = false
     }
   }
 }
