@@ -16,7 +16,7 @@ const mutations = {
       .then(res => {
         const data = res.data
         for (const key in data) {
-          state.myActivities.push(...data[key].myActivities)
+          myActivities.state.activities.push(...data[key].myActivities)
         }
       })
       .catch(err => console.log(err))
@@ -32,15 +32,13 @@ const actions = {
   saveData: ({ commit }) => {
     commit('CLEAR_DATA')
     commit('SAVE_DATA', myActivities.state.activities)
-    state.snackbar = true
-    state.snackbarText = 'Activities Saved!'
   },
   loadData: ({ commit }) => {
     commit('LOAD_DATA')
   },
   clearData: ({ commit }) => {
-    commit('CLEAR_DATA')
     myActivities.state.activities = []
+    commit('CLEAR_DATA')
   }
 }
 
