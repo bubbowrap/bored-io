@@ -4,6 +4,7 @@
       app
       dense
       flat
+      color="background"
     >
 
       <div class="d-flex align-center">

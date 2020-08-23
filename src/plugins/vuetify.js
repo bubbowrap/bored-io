@@ -19,10 +19,10 @@ export default new Vuetify({
         error: colors.red.accent3
       },
       dark: {
-        background: '#272727',
+        background: '#121212',
         headingColor: colors.grey.lighten5,
         bodyColor: colors.grey.lighten5,
-        notifBar: colors.grey.darken2,
+        notifBar: colors.grey.darken4,
         primary: colors.indigo.darken2,
         secondary: colors.orange.darken2
       }

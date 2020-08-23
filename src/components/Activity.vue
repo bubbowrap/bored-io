@@ -5,7 +5,7 @@
     >
       <v-card-title class="text-capitalize mb-1 ">{{ activity.activity }}</v-card-title>
       <v-card-subtitle class="text-uppercase">{{ activity.type }}</v-card-subtitle>
-      <v-card-text class="headingColor--text">
+      <v-card-text class="bodyColor--text">
         # Participants:
         <v-icon v-for="n in activity.participants" :key="n">mdi-account</v-icon>
       </v-card-text>

@@ -15,8 +15,10 @@ const mutations = {
     axios.get(`${process.env.VUE_APP_DB}/data.json`)
       .then(res => {
         const data = res.data
-        for (const key in data) {
-          state.myActivities.push(...data[key].myActivities)
+        if (myActivities.state.activities.length === 0) {
+          for (const key in data) {
+            myActivities.state.activities.push(...data[key].myActivities)
+          }
         }
       })
       .catch(err => console.log(err))
@@ -32,15 +34,14 @@ const actions = {
   saveData: ({ commit }) => {
     commit('CLEAR_DATA')
     commit('SAVE_DATA', myActivities.state.activities)
-    state.snackbar = true
-    state.snackbarText = 'Activities Saved!'
   },
   loadData: ({ commit }) => {
+    myActivities.state.activities = []
     commit('LOAD_DATA')
   },
   clearData: ({ commit }) => {
-    commit('CLEAR_DATA')
     myActivities.state.activities = []
+    commit('CLEAR_DATA')
   }
 }
 
