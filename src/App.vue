@@ -26,7 +26,7 @@ export default {
     border-bottom: thin solid rgba(0,0,0,.1);
 
     .theme--dark & {
-    border-bottom: thin solid rgba(255,255,255,.1);
+    border-bottom: thin solid rgba(255,255,255,.2);
     }
   }
 
