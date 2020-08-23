@@ -170,7 +170,7 @@ export default {
       drawer: true,
       dialog: false,
       snackbar: false,
-      snackbarText: 'hey',
+      snackbarText: '',
       timeout: 2000,
       links: [
         {
