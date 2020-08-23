@@ -26,6 +26,7 @@ export default new Vuetify({
         primary: colors.indigo.darken2,
         secondary: colors.orange.darken2
       }
-    }
+    },
+    dark: true
   }
 })

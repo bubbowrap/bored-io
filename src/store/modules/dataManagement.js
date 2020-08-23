@@ -7,9 +7,11 @@ const state = {
 
 const mutations = {
   'SAVE_DATA' (payload) {
-    axios.post(`${process.env.VUE_APP_DB}/data.json`, payload)
-      .then(res => res)
-      .catch(err => console.log(err))
+    axios.delete(`${process.env.VUE_APP_DB}/data.json`).then(() => {
+      axios.post(`${process.env.VUE_APP_DB}/data.json`, payload)
+        .catch(err => console.error(err))
+    }
+    )
   },
   'LOAD_DATA' () {
     axios.get(`${process.env.VUE_APP_DB}/data.json`)
@@ -24,22 +26,17 @@ const mutations = {
       .catch(err => console.log(err))
   },
   'CLEAR_DATA' () {
-    axios.put(`${process.env.VUE_APP_DB}/data.json`, [])
-      .then(res => res)
+    axios.delete(`${process.env.VUE_APP_DB}/data.json`)
       .catch(err => console.log(err))
   }
 }
 
 const actions = {
-  saveData: async ({ dispatch, commit }) => {
-    await dispatch('clearDb').then(commit('SAVE_DATA', myActivities.state.activities))
+  saveData: async ({ commit }) => {
+    await commit('SAVE_DATA', myActivities.state.activities)
   },
-  loadData: ({ commit }) => {
-    myActivities.state.activities = []
-    commit('LOAD_DATA')
-  },
-  clearDb: ({ commit }) => {
-    commit('CLEAR_DATA')
+  loadData: async ({ commit }) => {
+    await commit('LOAD_DATA')
   },
   clearData: ({ commit }) => {
     myActivities.state.activities = []
