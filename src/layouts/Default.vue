@@ -48,9 +48,11 @@
         <v-switch
           v-model="darkMode"
           color="primary lighten-3"
-          hide-details
           class="ml-2 ml-md-4"
-          ></v-switch>
+          hide-details
+          v-slot:label
+          ><v-icon right class="ml-1">mdi-weather-night</v-icon>
+        </v-switch>
       </div>
     </v-app-bar>
 
