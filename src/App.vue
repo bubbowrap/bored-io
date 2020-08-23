@@ -21,9 +21,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   .v-toolbar__content {
     border-bottom: thin solid rgba(0,0,0,.1);
+
+    .theme--dark & {
+    border-bottom: thin solid rgba(255,255,255,.1);
+    }
   }
 
   .list-enter-active {

@@ -2,7 +2,6 @@
   <div class="layout--default">
     <v-app-bar
       app
-      class="grey lighten-4"
       dense
       flat
     >
@@ -18,7 +17,7 @@
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
-              class="grey--text text--darken-2"
+              class="bodyColor--text"
               text
               v-bind="attrs"
               v-on="on"
@@ -45,6 +44,12 @@
             </v-list-item>
           </v-list>
         </v-menu>
+        <v-switch
+          v-model="darkMode"
+          color="primary lighten-3"
+          hide-details
+          class="ml-2 ml-md-4"
+          ></v-switch>
       </div>
     </v-app-bar>
 
@@ -71,7 +76,7 @@
           </v-btn>
 
           <v-btn
-            color="orange darken-2"
+            color="secondary"
             text
             @click="clearData"
           >
@@ -82,7 +87,7 @@
     </v-dialog>
 
     <v-navigation-drawer
-      color="indigo"
+      color="primary"
       v-model="drawer"
       mobile-breakpoint="600"
       app
@@ -119,7 +124,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <p class="text-center indigo--text text--lighten-3">Version 0.0.0</p>
+          <p class="text-center primary--text text--lighten-3">Version 0.0.0</p>
         </div>
       </template>
     </v-navigation-drawer>
@@ -132,7 +137,7 @@
 
       <template v-slot:action="{ attrs }">
         <v-btn
-          color="orange"
+          color="secondary"
           text
           v-bind="attrs"
           @click="snackbar = false"
@@ -142,7 +147,7 @@
       </template>
     </v-snackbar>
 
-    <v-main class="grey lighten-4">
+    <v-main class="background">
       <v-container class="pa-8 pt-2" fluid>
         <keep-alive>
           <router-view></router-view>
@@ -160,6 +165,7 @@
 export default {
   data () {
     return {
+      darkMode: false,
       drawer: true,
       dialog: false,
       snackbar: false,
@@ -187,6 +193,11 @@ export default {
           text: 'About'
         }
       ]
+    }
+  },
+  watch: {
+    darkMode () {
+      this.darkMode ? this.$vuetify.theme.dark = true : this.$vuetify.theme.dark = false
     }
   },
   methods: {
