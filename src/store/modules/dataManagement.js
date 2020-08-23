@@ -31,10 +31,10 @@ const mutations = {
 }
 
 const actions = {
-  saveData: async ({ dispatch, commit }) => {
-    await dispatch('clearDb')
-    commit('SAVE_DATA', myActivities.state.activities)
-  },
+  // saveData: async ({ dispatch, commit }) => {
+  //   await dispatch('clearDb')
+  //   commit('SAVE_DATA', myActivities.state.activities)
+  // },
   loadData: ({ commit }) => {
     myActivities.state.activities = []
     commit('LOAD_DATA')
