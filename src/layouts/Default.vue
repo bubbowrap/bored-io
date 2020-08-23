@@ -166,7 +166,7 @@
 export default {
   data () {
     return {
-      darkMode: false,
+      darkMode: true,
       drawer: true,
       dialog: false,
       snackbar: false,
@@ -205,13 +205,13 @@ export default {
     confirmClear () {
       this.dialog = true
     },
-    saveData () {
+    async saveData () {
       this.$store.dispatch('saveData')
       this.snackbarText = 'Activities saved!'
       this.snackbar = true
     },
-    loadData () {
-      this.$store.dispatch('loadData')
+    async loadData () {
+      await this.$store.dispatch('loadData')
       this.snackbarText = 'Activities loaded!'
       this.snackbar = true
     },
