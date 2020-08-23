@@ -2,6 +2,7 @@
   <v-col cols="12" sm="auto" md="6" lg="4">
     <v-card
       :class="completed ? 'disabled' : null"
+      color="cardBackground"
     >
       <v-card-title class="text-capitalize mb-1 ">{{ activity.activity }}</v-card-title>
       <v-card-subtitle class="text-uppercase">{{ activity.type }}</v-card-subtitle>

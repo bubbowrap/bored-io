@@ -12,13 +12,6 @@ export default new Vuex.Store({
     drawer: false
   },
 
-  actions: {
-    async saveData ({ dispatch, commit }) {
-      await dispatch('clearDb')
-      commit('SAVE_DATA', myActivities.state.activities)
-    }
-  },
-
   modules: {
     myActivities,
     randomActivities,
