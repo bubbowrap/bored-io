@@ -2,10 +2,10 @@
   <div>
     <v-row>
       <v-col>
-        <h1 class="text-h4 indigo--text text--darken-3">Completed Activities</h1>
+        <h1 class="text-h4 headingColor--text">Completed Activities</h1>
         <Activities :completed="true">
-          <v-col class="grey lighten-2 rounded-sm mt-3">
-            <p class="grey--text text--darken-1 mb-0">
+          <v-col class="notifBar rounded mt-3">
+            <p class="bodyColor--text mb-0">
               You haven't completed anything yet! Head back to your saved activities and get to work <v-icon>mdi-emoticon-happy</v-icon>
             </p>
           </v-col>

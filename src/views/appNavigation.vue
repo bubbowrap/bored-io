@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    color="indigo"
+    color="primary"
     v-model="drawer"
     mobile-breakpoint="600"
     app
@@ -37,7 +37,7 @@
     </v-list>
     <template v-slot:append>
       <div class="pa-2">
-        <p class="text-center indigo--text text--lighten-3">Version 0.0.0</p>
+        <p class="text-center primary--text text--lighten-3">Version 0.0.0</p>
       </div>
     </template>
   </v-navigation-drawer>

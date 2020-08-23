@@ -5,7 +5,7 @@
     >
       <v-card-title class="text-capitalize mb-1 ">{{ activity.activity }}</v-card-title>
       <v-card-subtitle class="text-uppercase">{{ activity.type }}</v-card-subtitle>
-      <v-card-text class="grey--text text--darken-4">
+      <v-card-text class="headingColor--text">
         # Participants:
         <v-icon v-for="n in activity.participants" :key="n">mdi-account</v-icon>
       </v-card-text>
@@ -14,7 +14,7 @@
         <v-btn
           v-if="activity.link"
           :href="activity.link"
-          color="orange darken-2"
+          color="secondary"
           text
           dark
           small
@@ -75,6 +75,10 @@ export default {
 .v-card.disabled {
   background-color: rgba(0,0,0,.07) !important;
   box-shadow: none !important;
+
+  .theme--dark & {
+    background-color: rgba(255,255,255,.05) !important;
+  }
 
   .v-card__title {
     text-decoration: line-through;
