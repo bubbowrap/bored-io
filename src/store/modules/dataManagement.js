@@ -8,7 +8,7 @@ const state = {
 const mutations = {
   'SAVE_DATA' (payload) {
     axios.post(`${process.env.VUE_APP_DB}/data.json`, payload)
-      .then(res => res)
+      .then(async res => res)
       .catch(err => console.log(err))
   },
   'LOAD_DATA' () {
@@ -31,8 +31,8 @@ const mutations = {
 }
 
 const actions = {
-  saveData: ({ commit }) => {
-    commit('CLEAR_DATA')
+  saveData: async ({ commit }) => {
+    await commit('CLEAR_DATA')
     commit('SAVE_DATA', myActivities.state.activities)
   },
   loadData: ({ commit }) => {
