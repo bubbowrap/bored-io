@@ -127,7 +127,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <p class="text-center primary--text text--lighten-3">Version 0.0.0</p>
+          <p class="text-center primary--text text--lighten-3">Version 1.5.12</p>
         </div>
       </template>
     </v-navigation-drawer>
