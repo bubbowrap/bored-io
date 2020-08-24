@@ -161,9 +161,6 @@
 </template>
 
 <script>
-// import appNavigation from '@/views/appNavigation.vue'
-// import { mapActions } from 'vuex'
-// import store from '@/store'
 
 export default {
   data () {
