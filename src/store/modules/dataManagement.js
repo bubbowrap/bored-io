@@ -16,18 +16,21 @@ const mutations = {
   'LOAD_DATA' () {
     axios.get(`${process.env.VUE_APP_DB}/data.json`)
       .then(res => {
-        const data = res.data
+        myActivities.state.activities = []
+        return res.data
+      })
+      .then(data => {
         if (myActivities.state.activities.length === 0) {
           for (const key in data) {
             myActivities.state.activities.push(...data[key].myActivities)
           }
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
   },
   'CLEAR_DATA' () {
     axios.delete(`${process.env.VUE_APP_DB}/data.json`)
-      .catch(err => console.log(err))
+      .catch(err => console.error(err))
   }
 }
 

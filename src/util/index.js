@@ -21,7 +21,7 @@ const getActivity = (state) => {
         getActivity(state)
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => console.error(err))
 }
 
 export { EventBus, getActivity, removeItem }
