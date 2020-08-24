@@ -205,12 +205,12 @@ export default {
       this.dialog = true
     },
     async saveData () {
-      this.$store.dispatch('saveData')
+      await this.$store.dispatch('saveData')
       this.snackbarText = 'Activities saved!'
       this.snackbar = true
     },
-    async loadData () {
-      await this.$store.dispatch('loadData')
+    loadData () {
+      this.$store.dispatch('loadData')
       this.snackbarText = 'Activities loaded!'
       this.snackbar = true
     },
