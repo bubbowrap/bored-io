@@ -7,16 +7,16 @@ const state = {
 
 const mutations = {
   'SAVE_DATA' (payload) {
-    axios.delete(`${process.env.VUE_APP_DB}/data.json`).then(() => {
-      axios.post(`${process.env.VUE_APP_DB}/data.json`, payload)
-        .catch(err => console.error(err))
-    }
-    )
+    axios.delete(`${process.env.VUE_APP_DB}/data.json`)
+      .then(() => {
+        axios.post(`${process.env.VUE_APP_DB}/data.json`, payload)
+      })
+      .catch(err => console.error(err))
   },
   'LOAD_DATA' () {
     axios.get(`${process.env.VUE_APP_DB}/data.json`)
       .then(res => {
-        myActivities.state.activities = []
+        while (myActivities.state.activities.length > 0) myActivities.state.activities.pop()
         return res.data
       })
       .then(data => {
@@ -39,10 +39,10 @@ const actions = {
     await commit('SAVE_DATA', myActivities.state.activities)
   },
   loadData: async ({ commit }) => {
-    await commit('LOAD_DATA')
+    commit('LOAD_DATA')
   },
   clearData: ({ commit }) => {
-    myActivities.state.activities = []
+    while (myActivities.state.activities.length > 0) myActivities.state.activities.pop()
     commit('CLEAR_DATA')
   }
 }
