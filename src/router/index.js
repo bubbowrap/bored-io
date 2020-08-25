@@ -27,6 +27,11 @@ const routes = [
     path: '/saved',
     name: 'savedActivities',
     component: savedActivities
+  },
+  {
+    path: '/*',
+    name: 'Home',
+    component: Home
   }
 ]
 
