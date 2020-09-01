@@ -8,6 +8,10 @@ const state = {
 }
 
 const mutations = {
+  'SET_EMPTY' () {
+    state.randomActivities = []
+  },
+
   'SAVE_ACTIVITY' (state, payload) {
     payload = { ...payload, completed: false }
     myActivities.state.activities.unshift(payload)
@@ -16,8 +20,8 @@ const mutations = {
 }
 
 const actions = {
-  getRandom: () => {
-    state.randomActivities = []
+  getRandom: ({ commit }) => {
+    commit('SET_EMPTY')
     for (let i = 0; i < state.maxNum; i++) {
       getActivity(state)
     }

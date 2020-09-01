@@ -94,6 +94,7 @@
       v-model="drawer"
       mobile-breakpoint="600"
       app
+      floating
       dark
     >
       <v-list-item>
@@ -104,7 +105,7 @@
             style="text-decoration: none; color: inherit;"
           >
             <v-icon class="mr-1">mdi-emoticon-neutral-outline</v-icon>
-            <strong class="subheading text-uppercase">Bored.af</strong>
+            <strong class="subheading text-uppercase">Bored.io</strong>
           </router-link>
         </v-list-item-content>
       </v-list-item>
