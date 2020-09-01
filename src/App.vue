@@ -16,7 +16,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('loadData')
+    // this.$store.dispatch('loadData')
   }
 }
 </script>
